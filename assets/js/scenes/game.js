@@ -21,18 +21,21 @@ export default class Game extends Phaser.Scene {
       .tileSprite(40, 0, width, height, 'layer-meme')
       .setOrigin(0, 0)
       .setScrollFactor(0, 0);
-    this.platform = this.physics.add.staticGroup();
 
+    //platform
+    this.platform = this.physics.add.staticGroup();
     this.platform.create(0, 400, 'platform');
     this.platform.create(400, 400, 'platform');
     this.platform.create(900, 400, 'platform');
+    this.platform.create(1300, 400, 'platform');
 
     //player
     this.player = this.physics.add.sprite(100, 300, 'poki');
     //this.player.setBounce(0.2);
-    this.player.setCollideWorldBounds(true);
+    //this.player.setCollideWorldBounds(true);
     this.player.body.setGravityY(300);
     this.player.body.setVelocityX(200);
+
     this.physics.add.collider(this.player, this.platform);
     createPokiAnims(this.anims);
     this.player.anims.play('run');

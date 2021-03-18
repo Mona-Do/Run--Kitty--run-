@@ -13,7 +13,7 @@ const config = {
       debug: false,
     },
   },
-  backgroundColor: "#693B4C",
+  backgroundColor: '#693B4C',
   scene: [Preloader, Background, Game],
 };
 
