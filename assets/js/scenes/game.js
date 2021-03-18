@@ -13,14 +13,19 @@ export default class Game extends Phaser.Scene {
   preload() {}
 
   create() {
+    //background
     //this.add.image(30, 0, 'layer-meme').setOrigin(0, 0);
     let width = this.scale.width;
     let height = this.scale.height;
-    this.background = this.add.tileSprite(40, 0, width, height, 'layer-meme').setOrigin(0, 0).setScrollFactor(0,0);
+    this.background = this.add
+      .tileSprite(40, 0, width, height, 'layer-meme')
+      .setOrigin(0, 0)
+      .setScrollFactor(0, 0);
     this.platform = this.physics.add.staticGroup();
 
     this.platform.create(0, 400, 'platform');
     this.platform.create(400, 400, 'platform');
+    this.platform.create(900, 400, 'platform');
 
     //player
     this.player = this.physics.add.sprite(100, 300, 'poki');
@@ -39,8 +44,13 @@ export default class Game extends Phaser.Scene {
 
   update() {
     this.background.setTilePosition(this.cameras.main.scrollX);
-    //     const cam = this.cameras.main;
-    //     const speed = 3;
-    //     cam.scrollX += speed;
+
+    //poki move
+    this.cursors = this.input.keyboard.createCursorKeys();
+
+    if (this.cursors.up.isDown) {
+      this.player.setVelocityY(-200);
+      //this.player.anims.play('jump', true);
+    }
   }
 }
