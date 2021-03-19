@@ -73,5 +73,9 @@ export default class Game extends Phaser.Scene {
       this.player.setVelocityY(-200);
       //this.player.anims.play('jump', true);
     }
+
+    if (this.player.y > 450){
+      this.scene.start('gameover');
+    }
   }
 }
