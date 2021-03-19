@@ -9,6 +9,7 @@ export default class Game extends Phaser.Scene {
   platform;
   cursors;
   background;
+  hexColor;
 
   preload() {}
 
@@ -21,6 +22,8 @@ export default class Game extends Phaser.Scene {
       .tileSprite(40, 0, width, height, 'layer-meme')
       .setOrigin(0, 0)
       .setScrollFactor(0, 0);
+    this.color1 = new Phaser.Display.Color(105,59,76);
+    this.color2 = new Phaser.Display.Color(105, 70, 0);
 
     //platform
     this.platform = this.physics.add.staticGroup();
@@ -43,10 +46,14 @@ export default class Game extends Phaser.Scene {
     //set camera
     this.cameras.main.startFollow(this.player);
     this.cameras.main.setBounds(0, 0, Number.MAX_SAFE_INTEGER, 500);
+    this.w = this.cameras.main.width;
+    this.h = this.cameras.main.height;
   }
 
   update() {
     this.background.setTilePosition(this.cameras.main.scrollX);
+    let hexColor = Phaser.Display.Color.Interpolate.ColorWithColor(this.color1, this.color2, -this.h * 2, this.player.x);
+    this.cameras.main.setBackgroundColor(hexColor);
 
     //poki move
     this.cursors = this.input.keyboard.createCursorKeys();
