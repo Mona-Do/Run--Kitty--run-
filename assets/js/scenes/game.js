@@ -43,7 +43,7 @@ export default class Game extends Phaser.Scene {
     //player
     this.player = this.physics.add.sprite(100, 300, 'poki');
     this.player.body.setGravityY(300);
-    this.player.body.setVelocityX(200);
+    this.player.body.setVelocityX(300);
     this.physics.add.collider(this.player, this.platform);
     createPokiAnims(this.anims);
     this.player.anims.play('run');

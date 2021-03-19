@@ -1,5 +1,4 @@
 import Preloader from './scenes/preloader.js';
-import Background from './scenes/background.js';
 import Game from './scenes/game.js';
 import Gameover from './scenes/gameover.js';
 
@@ -15,7 +14,7 @@ const config = {
     },
   },
   //backgroundColor: '#693B4C',
-  scene: [Preloader, Background, Game, Gameover],
+  scene: [Preloader, Game, Gameover],
 };
 
 const game = new Phaser.Game(config);
