@@ -1,4 +1,4 @@
 # Run-Kitty-run
 
 In progress --- 
-Press Up to jump
+Press SPACE to jump
